@@ -20,13 +20,15 @@ abstract class Department {
 }
 
 console.log(Department.createEmployee("Michael"));
-// const accounting = new Department("acct", "Accounting");
-// accounting.describe();
-// accounting.addEmployee("Michael");
-// accounting.showEmployees();
 
-// const accountingCopy = { name: "s", id: "asdf", describe: accounting.describe };
-// accountingCopy.describe();
+class AccountingDepartment extends Department {
+  describe() {
+    console.log("Accounting Department - ID: " + this.id);
+  }
+}
+
+const accounting = new AccountingDepartment("a1", "Accounting");
+accounting.describe();
 
 class ITDepartment extends Department {
   admins: string[];
