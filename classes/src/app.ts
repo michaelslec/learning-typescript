@@ -3,7 +3,7 @@ class Department {
 
   constructor(private readonly id: string, public name: string) {}
 
-  describe(this: Department) {
+  describe() {
     console.log(`Department (${this.id}): ${this.name}`);
   }
 
@@ -11,3 +11,7 @@ class Department {
     this.employees.push(employee);
   }
 }
+
+const accounting = new Department("acct", "Accounting");
+
+accounting.describe();
