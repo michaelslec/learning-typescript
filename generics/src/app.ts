@@ -21,7 +21,7 @@ interface Lengthy {
   length: number;
 }
 
-function countAndDescribe<T extends Lengthy>(element: T) {
+function countAndDescribe<T extends Lengthy>(element: T): [T, string] {
   let descriptionText = "Got no value.";
 
   if (element.length == 1) {
@@ -32,3 +32,5 @@ function countAndDescribe<T extends Lengthy>(element: T) {
 
   return [element, descriptionText];
 }
+
+console.log(countAndDescribe(["Sports", "Cooking"]));
