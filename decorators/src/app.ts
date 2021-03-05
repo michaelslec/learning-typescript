@@ -25,3 +25,34 @@ class Person {
     console.log("Creating person object");
   }
 }
+
+function Log(target: any | typeof Product, propertyName: string | Symbol) {
+  console.log("Decorator!");
+
+  console.log(target, propertyName);
+}
+
+class Product {
+  @Log
+  title: string;
+
+  constructor(title: string, private _price: number) {
+    this.title = title;
+  }
+
+  set price(val: number) {
+    if (val > 0) this._price = val;
+    else throw new Error("Invalid price - should be positive");
+  }
+
+  get price(): number {
+    return this._price;
+  }
+
+  getPriceWithTax(tax: number) {
+    return this.price * (1 + tax);
+  }
+}
+
+const test = new Product("Shampoo", 20);
+// test.price = -1; throws correct runtime error
