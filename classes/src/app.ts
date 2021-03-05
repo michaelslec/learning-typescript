@@ -17,9 +17,14 @@ class Department {
 }
 
 const accounting = new Department("acct", "Accounting");
-
 accounting.describe();
 
-const accountingCopy = { name: "s", id: "asdf", describe: accounting.describe };
+// const accountingCopy = { name: "s", id: "asdf", describe: accounting.describe };
+// accountingCopy.describe();
 
-accountingCopy.describe();
+class ITDepartment extends Department {}
+
+const it = new ITDepartment("it", "Information Technology");
+
+it.addEmployee("Michael");
+it.showEmployees();
