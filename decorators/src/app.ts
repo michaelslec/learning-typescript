@@ -6,9 +6,13 @@ function Logger(logString: string) {
 }
 
 function WithTemplate(template: string, hookId: string) {
-  return function (_: Function) {
+  return function (constructor: typeof Person) {
     const hookEl = document.getElementById(hookId);
-    if (hookEl !== null) hookEl.innerHTML = template;
+    const p = new constructor();
+    if (hookEl !== null) {
+      hookEl.innerHTML = template;
+      hookEl.querySelector("h1")!.textContent = p.name;
+    }
   };
 }
 
@@ -18,9 +22,6 @@ class Person {
   name = "max";
 
   constructor() {
-    console.log("Creating person objecth");
+    console.log("Creating person object");
   }
 }
-
-const pers = new Person();
-console.log(pers);
