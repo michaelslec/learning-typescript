@@ -7,6 +7,10 @@ class Department {
     console.log(`Department (${this.id}): ${this.name}`);
   }
 
+  static createEmployee(name: string) {
+    return { name };
+  }
+
   addEmployee(employee: string) {
     this.employees.push(employee);
   }
@@ -15,6 +19,8 @@ class Department {
     console.log(this.employees);
   }
 }
+
+console.log(Department.createEmployee("Michael"));
 
 const accounting = new Department("acct", "Accounting");
 accounting.describe();
