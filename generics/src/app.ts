@@ -83,3 +83,8 @@ function createCourseGoal(
   courseGoal.completeUntil = date;
   return courseGoal as CourseGoal;
 }
+
+const names: Readonly<string[]> = ["Max", "Anna"];
+// names.push("Manu");
+// names.pop();
+console.log(names);
