@@ -3,7 +3,7 @@ class Department {
 
   constructor(private readonly id: string, public name: string) {}
 
-  describe() {
+  describe(this: Department) {
     console.log(`Department (${this.id}): ${this.name}`);
   }
 
@@ -16,6 +16,6 @@ const accounting = new Department("acct", "Accounting");
 
 accounting.describe();
 
-const accountingCopy = { describe: accounting.describe };
+const accountingCopy = { name: "s", id: "asdf", describe: accounting.describe };
 
 accountingCopy.describe();
