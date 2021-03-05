@@ -19,16 +19,11 @@ abstract class Department {
   }
 }
 
-console.log(Department.createEmployee("Michael"));
-
 class AccountingDepartment extends Department {
   describe() {
     console.log("Accounting Department - ID: " + this.id);
   }
 }
-
-const accounting = new AccountingDepartment("a1", "Accounting");
-accounting.describe();
 
 class ITDepartment extends Department {
   admins: string[];
@@ -46,8 +41,12 @@ class ITDepartment extends Department {
   }
 }
 
-const it = new ITDepartment("t1", ["Michael"]);
+console.log(Department.createEmployee("Michael"));
 
+const it = new ITDepartment("t1", ["Michael"]);
+const accounting = new AccountingDepartment("a1", "Accounting");
+
+accounting.describe();
 it.addEmployee("Michael");
 it.showEmployees();
 it.describe();
