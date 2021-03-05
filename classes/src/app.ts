@@ -10,6 +10,10 @@ class Department {
   addEmployee(employee: string) {
     this.employees.push(employee);
   }
+
+  showEmployees(this: Department) {
+    console.log(this.employees);
+  }
 }
 
 const accounting = new Department("acct", "Accounting");
