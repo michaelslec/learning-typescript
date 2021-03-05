@@ -1,6 +1,13 @@
-const button = document.querySelector("button")!;
+class Department {
+  private employees: string[] = [];
 
-if (button)
-  button.addEventListener("click", () => {
-    console.log("Clicked!");
-  });
+  constructor(private readonly id: string, public name: string) {}
+
+  describe(this: Department) {
+    console.log(`Department (${this.id}): ${this.name}`);
+  }
+
+  addEmployee(employee: string) {
+    this.employees.push(employee);
+  }
+}
