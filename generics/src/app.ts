@@ -15,7 +15,7 @@ function merge<T extends object, U extends object>(a: T, b: U) {
 }
 
 const mergedObj = merge({ name: "Michael" }, { age: 22 });
-console.log(mergedObj.name);
+// console.log(mergedObj.name);
 
 interface Lengthy {
   length: number;
@@ -33,7 +33,7 @@ function countAndDescribe<T extends Lengthy>(element: T): [T, string] {
   return [element, descriptionText];
 }
 
-console.log(countAndDescribe(["Sports", "Cooking"]));
+// console.log(countAndDescribe(["Sports", "Cooking"]));
 
 function extractAndConvert<T extends object, U extends keyof T>(
   obj: T,
@@ -42,7 +42,7 @@ function extractAndConvert<T extends object, U extends keyof T>(
   return "Value: " + obj[key];
 }
 
-console.log(extractAndConvert({ name: "Michael" }, "name"));
+// console.log(extractAndConvert({ name: "Michael" }, "name"));
 
 class DataStorage<T> {
   private data: T[] = [];
@@ -60,8 +60,26 @@ class DataStorage<T> {
   }
 }
 
-const textStorage = new DataStorage<string>();
-textStorage.addItem("Max");
-textStorage.addItem("Michael");
-textStorage.removeItem("Max");
-console.log(textStorage.getItems());
+// const textStorage = new DataStorage<string>();
+// textStorage.addItem("Max");
+// textStorage.addItem("Michael");
+// textStorage.removeItem("Max");
+// console.log(textStorage.getItems());
+
+interface CourseGoal {
+  title: string;
+  description: string;
+  completeUntil: Date;
+}
+
+function createCourseGoal(
+  title: string,
+  description: string,
+  date: Date
+): CourseGoal {
+  let courseGoal: Partial<CourseGoal> = {};
+  courseGoal.title = title;
+  courseGoal.description = description;
+  courseGoal.completeUntil = date;
+  return courseGoal as CourseGoal;
+}
