@@ -15,3 +15,7 @@ class Department {
 const accounting = new Department("acct", "Accounting");
 
 accounting.describe();
+
+const accountingCopy = { describe: accounting.describe };
+
+accountingCopy.describe();
