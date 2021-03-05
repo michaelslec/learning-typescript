@@ -22,9 +22,15 @@ accounting.describe();
 // const accountingCopy = { name: "s", id: "asdf", describe: accounting.describe };
 // accountingCopy.describe();
 
-class ITDepartment extends Department {}
+class ITDepartment extends Department {
+  admins: string[];
+  constructor(id: string, admins: string[]) {
+    super(id, "IT");
+    this.admins = admins;
+  }
+}
 
-const it = new ITDepartment("it", "Information Technology");
+const it = new ITDepartment("t1", ["Michael"]);
 
 it.addEmployee("Michael");
 it.showEmployees();
