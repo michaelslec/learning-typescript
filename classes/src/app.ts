@@ -1,10 +1,12 @@
 class Department {
   protected employees: string[] = [];
+  static fiscalYear = 2020;
 
   constructor(private readonly id: string, public name: string) {}
 
   describe(this: Department) {
     console.log(`Department (${this.id}): ${this.name}`);
+    console.log(Department.fiscalYear);
   }
 
   static createEmployee(name: string) {
